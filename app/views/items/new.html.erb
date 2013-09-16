@@ -1,0 +1,6 @@
+<h1>Create New Item</h1>
+
+<%= form_for @item do |f| %>
+    <%= render partial: "share/form", locals: {f: f} %>
+    <p> <%= f.submit "Create item" %> </p>
+<% end %>
