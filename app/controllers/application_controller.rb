@@ -1,6 +1,9 @@
+
 class ApplicationController < ActionController::Base
 
- protect_from_forgery
+
+
+  protect_from_forgery
 
  private
   def render_403
@@ -14,4 +17,7 @@ class ApplicationController < ActionController::Base
  def check_if_admin
    render_403 unless !params[:admin]
  end
+
+
 end
+

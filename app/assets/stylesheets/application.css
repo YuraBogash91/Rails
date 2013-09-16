@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
  */
-
+*= require jqplot
 
 body {
     margin: 0;

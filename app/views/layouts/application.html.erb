@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -17,10 +16,32 @@ Released   : 20080608
   <title>MyStore</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jqplot" %>
+  <script type="text/javascript" language="javascript" src="jqplot.dateAxisRenderer.js"></script>
   <%= csrf_meta_tags %>
+  <script>
+      $(function(){
+          2
+          $.jqplot("example",  [ [
+              3
+                      [0,0], [1,2],
+              4
+                      [3,5.12], [5,13.1],
+              5
+                      [7,33.6], [9,85.9],
+              6
+                      [11,219.9]
+              7
+          ] ], {legend: {show: true}});
+          8
+      });
 
+
+
+  </script>
 </head>
 <body>
+
 
 <div id="wrapper">
   <div id="wrapper-top">
@@ -40,10 +61,20 @@ Released   : 20080608
             <!-- start content -->
             <div id="content">
               <div class="post">
+
+                <div id="example" style="height:320px; width:400px; color:greenyellow" ><%= jqplot 300, 600, @line, {
+                        title:'Customized Date Axis',
+                        axes:{
+                                xaxis:{
+                                        renderer:jqplot.DateAxisRenderer
+                                                                                            }
+                                                                                            } ,
+                      legend: {show: true}} %></div>
                 <center> <%= yield %></center>
                </div>
             </div>
             <!-- end content -->
+
             <!-- start sidebar -->
             <div id="sidebar">
               <ul>
@@ -103,6 +134,7 @@ Released   : 20080608
           </div>
         </div>
       </div>
+
       <div id="footer">
         <p>&copy;2013 All Rights Reserved &nbsp;&bull;&nbsp; Design by <a href="https://vk.com/id21546679">Yuriy Bogash</a> &nbsp;&bull;&nbsp;			<div style="display:none;"></div>
         </p>

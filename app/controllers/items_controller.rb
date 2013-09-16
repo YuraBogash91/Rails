@@ -38,7 +38,13 @@ class ItemsController < ApplicationController
 
   #items/id Get
   def edit
-
+    @session = GoogleDrive.login("yuriybogash93@gmail.com", "Master720")
+    @app_version = @session.spreadsheet_by_key("0AuO1PubF79WadFc2ZWJoeG4wV00wNThGVGZKVFZJWHc").worksheet_by_title("total")
+    @line=[]
+    (3..10).each do |d|
+      @line[d-3]=[@app_version[d,1],@app_version[d,5].to_i]
+    end
+    p @line
   end
   #items/id PUT
   def update
@@ -46,7 +52,7 @@ class ItemsController < ApplicationController
     if @item.errors.empty?
       redirect_to item_path(@item)
     else
-      flash[:error] = "you make mistake"
+      flash[:error] = "#{@line.to_s}test"
       render "edit"
     end
   end
